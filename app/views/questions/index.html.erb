@@ -1,0 +1,15 @@
+<div class="container">
+  <%= form_tag '/questions', method: :post do  %>
+      <% @scholarship.questions.each do |question| %>
+          <div class="form-group">
+          <label for="focusedInput"><%= question.title%></label>
+          <textarea class="form-control" name="title id="focusedInput" rows="3"></textarea>
+        </div>
+    <% end %>
+    <div class="checkbox">
+      <input type="submit" class="btn btn-primary active" name="Create a New Job Post">
+    </div>
+  <% end %>
+</div>
+   
+

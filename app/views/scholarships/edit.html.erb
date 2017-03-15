@@ -1,0 +1,40 @@
+ <ul>
+  <% if @scholarship.errors.any? %>
+     <% @scholarship.errors.full_messages.each do |message| %>
+       <li class="model-errors"><%= message %></li> 
+     <% end %>
+  <% end %>
+</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <div class="form_main">
+              <h4 class="heading"><strong>Edit</strong> Scholarship <span></span></h4>
+              <%= form_tag "/scholarships/#{@scholarship.id}", method: :patch do %>
+                  <input type="text" required=""  name="title" class="txt" value="<%= @scholarship.title %>">
+                  <textarea name="summary" type="text" class="txt_3" value="<%= @scholarship.summary %>"></textarea>
+                  <textarea name="full_description" type="text" class="txt_3" value="<%= @scholarship.full_description %>"></textarea>
+                  <textarea  name="course_level" type="text" class="txt_3" value="<%= @scholarship.course_level %>"></textarea>
+                  <textarea name="study_subjects" type="text" class="txt_3" value="<%= @scholarship.study_subjects %>"></textarea>
+                  <textarea name="number_of_awards" type="text" class="txt_3" value="<%= @scholarship.number_of_awards %>"></textarea>
+                  <textarea name="covered_expenses" type="text" class="txt_3" value="<%= @scholarship.covered_expenses %>"></textarea>
+                  <textarea name="elegibility" type="text" class="txt_3" value="<%= @scholarship.elegibility %>"></textarea>
+                  <textarea name="how_to_apply" type="text" class="txt_3" value="<%= @scholarship.how_to_apply %>"></textarea>
+                  <textarea name="deadline" type="text" class="txt_3" value="<%= @scholarship.deadline %>"></textarea>
+                <div class="txt_3">
+                    Organization: 
+                     <select name="organization_id">
+                          <option value="" disabled selected>Select your option</option>
+                          <% @organizations.each do |organization| %>
+                            <option value="<%= organization.id %>">
+                            <%= organization.title %></option>
+                          <% end %>     
+                      </select>     
+                </div>
+                   <input type="submit" value="submit" class="txt2">
+              <% end %>
+          </div>
+          </div>
+          </div>
+  </div>
+</div>

@@ -4,10 +4,10 @@ one:
   title: MyString
   description: MyString
   user_id: 1
-  institution_id: 1
+  scholarship_id: 1
 
 two:
   title: MyString
   description: MyString
   user_id: 1
-  institution_id: 1
+  scholarship_id: 1

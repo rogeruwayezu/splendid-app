@@ -6,9 +6,43 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
   </head>
 
   <body>
+    <!-- Navbar (sit on top) -->
+<div class="w3">
+  <div class="w3-bar w3-white w3-card-2 w3-black" id="myNavbar">
+    <a href="/" class="w3-bar-item w3-button w3-wide">Splendid</a>
+    <a href="/scholarships" class="w3-bar-item w3-button w3-wide">Explore Scholarships</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+    <% if current_user %>
+      <a href="/logout" class="w3-bar-item w3-button"><i class="fa fa-th"></i>Log Out</a>
+      <% else %>
+        <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
+        <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-user"></i>Log In</a>  
+    <% end %>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars w3-padding-right w3-padding-left"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidenav on small screens when clicking the menu icon -->
+<nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidenav">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-large w3-padding-16">Close ×</a>
+  <a href="/signup" onclick="w3_close()">Sign Up</a>
+  <a href="/login" onclick="w3_close()">Log In</a>
+  <a href="/logout" onclick="w3_close()">Log Out</a>
+
+</nav>
     <%= yield %>
   </body>
 </html>
+

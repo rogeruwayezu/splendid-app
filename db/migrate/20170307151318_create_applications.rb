@@ -4,7 +4,7 @@ class CreateApplications < ActiveRecord::Migration[5.0]
       t.string :title
       t.string :description
       t.integer :user_id
-      t.integer :institution_id
+      t.integer :scholarship_id
 
       t.timestamps
     end

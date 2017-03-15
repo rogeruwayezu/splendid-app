@@ -1,0 +1,42 @@
+<ul>
+  <% if @scholarship.errors.any? %>
+     <% @scholarship.errors.full_messages.each do |message| %>
+       <li class="model-errors"><%= message %></li> 
+     <% end %>
+  <% end %>
+</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    <div class="form_main">
+              <h4 class="heading"><strong>Create</strong> Scholarship <span></span></h4>
+              <%= form_tag "/scholarships", method: :post do %>
+                  <input type="text" required="" placeholder="Please write the title" value="" name="title" class="txt">
+                  <textarea placeholder="summary" name="summary" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="full description" name="full_description" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="course level" name="course_level" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="study subjects" name="study_subjects" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="number of awards" name="number_of_awards" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="covered expenses" name="covered_expenses" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="elegibility" name="elegibility" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="how to apply" name="how_to_apply" type="text" class="txt_3"></textarea>
+                  <textarea placeholder="deadline" name="deadline" type="text" class="txt_3"></textarea>
+                <div class="txt_3">
+                    Organization: 
+                     <select name="organization_id">
+                          <option value="" disabled selected>Select your option</option>
+                          <% @organizations.each do |organization| %>
+                            <option value="<%= organization.id %>">
+                            <%= organization.title %></option>
+                          <% end %>     
+                      </select>     
+                </div>
+                   <input type="submit" value="submit" class="txt2">
+              <% end %>
+          </div>
+          </div>
+          </div>
+  </div>
+</div>
+
+
