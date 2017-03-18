@@ -10,7 +10,8 @@ class Api::V1::QuestionsController < ApplicationController
     if @question.save
      render :show
     else
-
+      puts "errors messages"
+      p @question.errors.full_messages
     end
   end
 end

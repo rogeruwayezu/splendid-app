@@ -26,6 +26,7 @@ Rails.application.routes.draw do
  namespace :api do
     namespace :v1 do
       get "/questions/new", to: 'questions#new'
+      # get "/questions/", to: 'scholarships#show'
       post "/questions", to: 'questions#create'
       get "/scholarships/:id", to: 'scholarships#show'
     end

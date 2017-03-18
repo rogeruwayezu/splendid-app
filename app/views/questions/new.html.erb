@@ -3,7 +3,7 @@
   <div ng-controller="questionsCtrl" ng-init="setup(<%= params[:scholarship_id] %>)">
     <div>
 
-      <div ng-repeat="question in questions">
+      <div ng-repeat="question in scholarship.questions">
         <p>{{question.title}}</p>
       </div>
       <div>
