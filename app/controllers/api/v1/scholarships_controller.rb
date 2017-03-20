@@ -4,4 +4,5 @@ class Api::V1::ScholarshipsController < ApplicationController
     puts "errors messages"
       p @scholarship.errors.full_messages
   end
+  
 end
