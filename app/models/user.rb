@@ -7,5 +7,8 @@ class User < ApplicationRecord
   def organization 
     role.name == "organization"
   end
+  def applicant
+    role.name == "applicant"
+  end
 
 end

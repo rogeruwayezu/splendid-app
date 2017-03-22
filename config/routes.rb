@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   patch "/scholarships/:id", to: 'scholarships#update'
   delete "/scholarships/:id", to: 'scholarships#destroy'
 
+  get "/applications/submission", to: 'applications#submission'
   get "/applications/new", to: 'applications#new'
   post "/applications", to: 'applications#create'
   get "/applications/:id", to: 'applications#show'
@@ -22,6 +23,10 @@ Rails.application.routes.draw do
   post "/questions", to: 'questions#create'
   get "/questions", to: 'questions#index'
   delete "/questions/:id", to: 'questions#destroy'
+
+  get "/answers/new", to: 'answers#new'
+  post "/answers", to: 'answers#create'
+  get "/answers", to: 'answers#index'
 
  namespace :api do
     namespace :v1 do

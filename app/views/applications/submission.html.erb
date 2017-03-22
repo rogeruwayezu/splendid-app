@@ -3,19 +3,19 @@
       <% @scholarship.questions.each do |question| %>
           <div class="form-group">
           <label for="focusedInput"><%= question.title%></label>
-          <textarea class="form-control" name="body" rows="3"></textarea>
+          <textarea class="form-control" name="bodies[]text" rows="3"></textarea>
           </div>
           <div>
-            <input type="hidden" name="application_id" class="form_control" value="<%= @scholarship.id %>">
+            <input type="hidden" name="bodies[]application_id" class="form_control" value="<%= @scholarship.id %>">
           </div>
           <div>
-            <input type="hidden" name="question_id" class="form_control" value="<%= question.id %>">
+            <input type="hidden" name="bodies[]question_id" class="form_control" value="<%= question.id %>">
           </div>
     <% end %>
     <div class="checkbox">
-      <input type="submit" class="btn btn-primary active" name="Create a New Job Post">
+      <input type="submit" class="btn btn-primary active" >
     </div>
   <% end %>
 </div>
-   
+
 

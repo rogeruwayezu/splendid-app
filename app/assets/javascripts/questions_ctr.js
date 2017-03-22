@@ -23,6 +23,7 @@
       var questionResponse = response.data;
       questionResponse.titleUpdate = questionTitle;
       $scope.scholarship.questions.push(questionResponse);
+      
     });
   
   }

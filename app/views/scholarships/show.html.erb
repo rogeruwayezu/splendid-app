@@ -1,11 +1,13 @@
 <h3>Scholarship</h3>
+<% if current_user && current_user.organization %>
   <%= form_tag "/questions", method: :get do %>
     <div>
       <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">
     </div>
     <div>
-    <%= button_to "Question Form", "/questions" , class: "btn btn-default", method: :get %>
+    <%= button_to "Question Form", "/questions?scholarship_id=#{@scholarship.id} " , class: "btn btn-default", method: :get %>
   <% end %>
+<% end %> 
 <h4><%= @scholarship.title%></h4>
 <p><br><strong>Full Description</strong>: <%= @scholarship.full_description%></br></p>
 <p><br><strong>Course Level </strong>: <%= @scholarship.course_level%></br></p>
@@ -29,5 +31,7 @@
       <input type="submit" value="Add Question form" class="btn btn-default">
     </div>
   <% end %>
-  
 <% end %>
+<% if current_user && current_user.applicant %>
+  <%= link_to "Application form", "/applications/new?scholarship_id=#{@scholarship.id}", class: "btn btn-default", method: :get %>
+<%end%>

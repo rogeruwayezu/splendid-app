@@ -3,7 +3,11 @@ class ApplicationsController < ApplicationController
  
   def show
     @application = Application.find_by(id:params[:id])
+    @scholarship = @application.scholarship
     
+  end
+  def submission
+    @scholarship = Scholarship.find_by(id: params[:scholarship_id])
   end
   def new
     @application = Application.new
@@ -11,8 +15,8 @@ class ApplicationsController < ApplicationController
   end
   def create
      @application = Application.create(
-      title: params[:title],
-      description: params[:description],
+      first_name: params[:first_name],
+      last_name: params[:last_name],
       user_id: params[:user_id],
       scholarship_id: params[:scholarship_id],
       )
