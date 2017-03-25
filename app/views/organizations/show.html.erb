@@ -1,0 +1,4 @@
+<h4>Organization: <%= @organization.title%></h4>  
+<h4>Email: <%= @organization.email %></h4> 
+<%= button_to "Edit", "/organizations/#{@organization.id}/edit" , class: "btn btn-success", method: :get %>
+<%= button_to "Delete", "/organizatons/#{@organization.id}" , class: "btn btn-danger", method: :delete %>

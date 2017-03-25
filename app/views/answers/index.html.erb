@@ -1,0 +1,7 @@
+<% @scholarships.each do |scholarship| %>
+  <% scholarship.applications.each do |application| %>
+   <h3> <%= application.user.first_name %></h3>
+   <h3><%= application.user.last_name %></h3>
+    <%= application.questions %>
+  <% end %>
+<% end %>

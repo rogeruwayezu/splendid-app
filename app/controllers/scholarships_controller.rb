@@ -1,7 +1,12 @@
 class ScholarshipsController < ApplicationController
   before_action :authenticate_organization!, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @scholarships = Scholarship.all 
+    if current_user && current_user.user_organization
+      @scholarships = current_user.organization.scholarships
+    else
+    @scholarships = Scholarship.all
+    end
+   
   end
   def show
     @scholarship = Scholarship.find_by(id:params[:id])
@@ -29,7 +34,7 @@ class ScholarshipsController < ApplicationController
       )
     if @scholarship.save
       flash[:success] = "Scholarship Created"
-      redirect_to "/applications/new"
+      redirect_to "/applications/#{@scholarship.id} "
     else
       flash[:danger] = "Order NOT Created"
       render :new

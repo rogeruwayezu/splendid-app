@@ -1,5 +1,5 @@
 <h3>Scholarship</h3>
-<% if current_user && current_user.organization %>
+<% if current_user && current_user.user_organization %>
   <%= form_tag "/questions", method: :get do %>
     <div>
       <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">
@@ -32,6 +32,6 @@
     </div>
   <% end %>
 <% end %>
-<% if current_user && current_user.applicant %>
+<% if current_user && current_user.user_applicant %>
   <%= link_to "Application form", "/applications/new?scholarship_id=#{@scholarship.id}", class: "btn btn-default", method: :get %>
 <%end%>

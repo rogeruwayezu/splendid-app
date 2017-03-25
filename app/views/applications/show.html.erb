@@ -1,6 +1,7 @@
 <h2>Created Application For <%= @application.scholarship.title%> Scholarship</h2>
 <p>First Name: <%= @application.first_name%></p>
 <p>Last Name: <%= @application.last_name%></p>
+<%= link_to "Dowload personal statement", @application.personal_statement.url %>
 <%= form_tag "/applications/submission?scholarship_id=#{@scholarship.id}", method: :get do  %>
     <div>
       <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">

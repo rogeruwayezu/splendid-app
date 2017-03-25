@@ -1,0 +1,26 @@
+<ul>
+  <% if @organization.errors.any? %>
+     <% @organization.errors.full_messages.each do |message| %>
+       <li class="model-errors"><%= message %></li> 
+     <% end %>
+  <% end %>
+</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form_main">
+                <h4 class="heading"><strong>Create</strong> Organization <span></span></h4>
+                <%= form_tag "/organizations", method: :post do %>
+                    <input type="text" required="" placeholder="Please write the title" value="" name="title" class="txt">
+                    <textarea placeholder="Email" name="email" type="email" class="txt_3"></textarea>
+                    <div>
+                      <input type="hidden" name="user_id" class="form_control" value="<%= current_user.id %>">
+                    </div>
+                     <input type="submit" value="submit" class="txt2">
+                <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

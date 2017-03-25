@@ -6,7 +6,7 @@
    <% end %>
 <% end %>
 </ul>
-<%= form_tag '/applications', method: :post do  %>
+<%= form_tag '/applications', multipart: true, method: :post do  %>
   <div>
     First Name:
     <input type="text" name="first_name">
@@ -14,6 +14,10 @@
   <div>
     Last Name: 
     <input type="text" name="last_name">
+  </div>
+  <div>
+    Upload Your Personal statement
+    <input type="file" name="personal_statement">
   </div>
   <div>
     <input type="hidden" name="user_id" class="form_control" value="<%= current_user.id %>">

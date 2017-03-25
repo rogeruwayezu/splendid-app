@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def index
-    @scholarship = Scholarship.find_by(id: params[:scholarship_id])
- 
+   @scholarships = current_user.organization.scholarships
+   sosoo
   end
   def new
      @answer = Answer.new
