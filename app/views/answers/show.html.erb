@@ -1,0 +1,4 @@
+<% @answers.each do |answer| %>
+  <%= answer.body %>
+<% end %>
+<%= button_to "Submit", "applications/#{@application.id}", class: "btn btn-success", method: :patch %>  

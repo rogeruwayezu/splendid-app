@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_tag '/answers', method: :post do  %>
+  <%= form_tag "/answers?application_id=#{@application.id}", method: :post do  %>
       <% @scholarship.questions.each do |question| %>
           <div class="form-group">
           <label for="focusedInput"><%= question.title%></label>
@@ -11,11 +11,9 @@
           <div>
             <input type="hidden" name="bodies[]question_id" class="form_control" value="<%= question.id %>">
           </div>
-    <% end %>
-    <div class="checkbox">
-      <input type="submit" class="btn btn-primary active" >
-    </div>
+      <% end %>
+      <%= button_to "Save", class: "btn btn-success" %>
   <% end %>
 </div>
-
+   
 

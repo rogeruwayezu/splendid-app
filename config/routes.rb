@@ -23,8 +23,10 @@ Rails.application.routes.draw do
   delete "/organizations/:id", to: 'organizations#destroy'
 
   get "/applications/submission", to: 'applications#submission'
+  get "/applications/complete", to: 'applications#complete'
   get "/applications/new", to: 'applications#new'
   post "/applications", to: 'applications#create'
+  patch "/applications/:id", to: 'applications#update'
   get "/applications/:id", to: 'applications#show'
 
   get "/questions/new", to: 'questions#new'
@@ -35,6 +37,10 @@ Rails.application.routes.draw do
   get "/answers", to: 'answers#index'
   post "/answers", to: 'answers#create'
   get "/answers", to: 'answers#index'
+
+  get "/dashboards/student", to: 'dashboards#student'
+  get "/dashboards/organization", to: 'dashboards#organization'
+ 
 
  namespace :api do
     namespace :v1 do

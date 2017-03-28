@@ -2,9 +2,12 @@
 <p>First Name: <%= @application.first_name%></p>
 <p>Last Name: <%= @application.last_name%></p>
 <%= link_to "Dowload personal statement", @application.personal_statement.url %>
-<%= form_tag "/applications/submission?scholarship_id=#{@scholarship.id}", method: :get do  %>
+<%= form_tag "/applications/submission?scholarship_id=#{@scholarship.id} &&application_id=#{@application.id} ", method: :get do  %>
     <div>
       <input type="hidden" name="scholarship_id" class="form_control" value="<%= @scholarship.id %>">
+    </div>
+    <div>
+      <input type="hidden" name="application_id" class="form_control" value="<%= @application.id %>">
     </div>
     <div>
       <input type="submit" value="Go to application form" class="btn btn-default">

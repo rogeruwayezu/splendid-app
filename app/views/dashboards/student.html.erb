@@ -1,0 +1,18 @@
+<div class="container"> 
+ <table class="table">
+        <tr>
+          <th>Application title</th>
+          <th>Status</th>
+          <th>Delete</th>
+        </tr>
+      <% @applications.each do |application| %>
+        <tr>
+          <td><%= link_to application.scholarship.title, "/applications/#{application.id}" %></td>
+          <td><%= application.completed%></td>
+          <td><%= link_to "Remove", "/applications/#{application.id}", method: :delete %></td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
+

@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
  
   def show
     @application = Application.find_by(id:params[:id])
@@ -8,6 +8,7 @@ class ApplicationsController < ApplicationController
   end
   def submission
     @scholarship = Scholarship.find_by(id: params[:scholarship_id])
+    @application = Application.find_by(id:params[:application_id])
   end
   def new
     @application = Application.new
@@ -30,6 +31,16 @@ class ApplicationsController < ApplicationController
       flash[:danger] = "Application NOT Created"
       render :new
     end
+  end
+  def complete
+    @application = Application.find_by(id: params[:application_id])
+    redirect_to "/scholarships"
+  end
+  def update
+    @application = Application.find_by(id: params[:id])
+    @application.assign_attributes(completed: true)
+    @application.save
+    redirect_to "/applications/#{@application.id}"
   end
   def download
     send_file '@application.personal_statement.url', :type=>"application/pdf", :x_sendfile=>true

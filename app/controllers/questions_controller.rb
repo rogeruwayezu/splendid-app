@@ -1,7 +1,6 @@
 class QuestionsController < ApplicationController
   def index
     @scholarship = Scholarship.find_by(id: params[:scholarship_id])
-    @questions = Question.all
   end
   def show
     @question = Question.find_by(id: params[:id])
